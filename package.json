@@ -1,29 +1,22 @@
 {
-  "name": "tbj",
-  "version": "0.0.1",
-  "private": true,
-  "scripts": {
-    "android": "react-native run-android",
-    "ios": "react-native run-ios",
-    "start": "react-native start",
-    "test": "jest",
-    "lint": "eslint ."
-  },
+  "name": "react",
+  "version": "1.0.0",
+  "description": "React example starter project",
+  "keywords": ["react", "starter"],
+  "main": "src/index.js",
   "dependencies": {
-    "react": "16.9.0",
-    "react-native": "0.61.5"
+    "react": "16.12.0",
+    "react-dom": "16.12.0",
+    "react-scripts": "3.0.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.8.7",
-    "@babel/runtime": "^7.8.7",
-    "@react-native-community/eslint-config": "^0.0.7",
-    "babel-jest": "^25.1.0",
-    "eslint": "^6.8.0",
-    "jest": "^25.1.0",
-    "metro-react-native-babel-preset": "^0.58.0",
-    "react-test-renderer": "16.9.0"
+    "typescript": "3.3.3"
   },
-  "jest": {
-    "preset": "react-native"
-  }
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": [">0.2%", "not dead", "not ie <= 11", "not op_mini all"]
 }
