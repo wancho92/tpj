@@ -4,6 +4,7 @@ import "./index.css";
 import Header from "../Header";
 import List from "../List";
 import Note from "../Note";
+import { generateId } from "../../utils"; // 랜덤ID
 
 class App extends React.Component {
   /* 
@@ -43,13 +44,54 @@ class App extends React.Component {
     this.setState({ activeId: id });
   };
 
+  // 편집 이벤트 핸들러
+  hadnleEditNote = (type, e) => {
+    // 새 notes 어레이 생성
+    const notes = [...this.state.notes];
+
+    // notes에서 현재 activeId와 일치하는 노트 객체 찾기
+    const note = notes.find(item => item.id === this.state.activeId);
+
+    // 객체의 속성에 값 할당. note.title 또는 note.contents
+    note[type] = e.target.value;
+
+    // notes에 새 array를 할당하여 state 편집
+    this.setState({
+      notes
+    });
+  };
+
+  // 추가 이벤트 핸들러
+  handleAddNote = () => {
+    const id = generateId(); // 랜덤ID
+    this.setState({
+      notes: [...this.state.notes, { id, title: "제목", contents: "내용" }],
+      activeId: id
+    });
+  };
+
+  // 삭제 이벤트 핸들러
+  handleDeleteNote = () => {
+    // 현재 선택한 노트를 제외한 새로운 array 생성
+    const notes = this.state.notes.filter(
+      item => item.id !== this.state.activeId
+    );
+
+    // 새 array를 notes에 할당
+    this.setState({
+      notes,
+      activeId: notes.length === 0 ? null : notes[0].id
+    });
+  };
+
   render() {
     // return <div>Hello World!</div>;
 
     const { notes, activeId } = this.state;
+    const activeNote = notes.filter(item => item.id === activeId)[0];
     return (
       <div className="app">
-        <Header />
+        <Header onAddNote={this.handleAddNote} />
         <div className="container">
           {/* notes와 activeId props로 전달 */}
 
@@ -66,7 +108,12 @@ class App extends React.Component {
             activeId={activeId}
             onListItemClick={this.handleListItemClick} // 메소드 전달
           />
-          <Note />
+
+          {/* activeNote가 존재할 경우 <Note />를 렌더링 한다. */}
+          {/* note 속성에 activeNote를 전달한다. */}
+          {notes.length !== 0 && (
+            <Note note={activeNote} onEditNote={this.hadnleEditNote} />
+          )}
         </div>
       </div>
     );

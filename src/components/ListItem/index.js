@@ -4,7 +4,7 @@ import "./index.css";
 
 class ListItem extends React.Component {
   render() {
-    const { id, active, title, contents, onClick } = this.props;
+    const { active, title, contents, onClick } = this.props;
     return (
       <div
         className={active ? "list-item active" : "list-item"}
