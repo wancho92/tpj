@@ -1,0 +1,37 @@
+div.header {
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  border-bottom: 1px solid #eee;
+}
+
+div.header > div.title {
+  font-size: 16px;
+  font-weight: 800;
+}
+
+div.header > div.title > a {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+div.header > div.title > a > img.logo {
+  height: 35px;
+  border-radius: 100%;
+}
+
+div.header > div.title > span {
+  vertical-align: middle;
+}
+
+div.header > div.buttons > button {
+  border: 0px;
+  font-size: 14px;
+  font-weight: 700;
+  background-color: #fff;
+  cursor: pointer;
+}

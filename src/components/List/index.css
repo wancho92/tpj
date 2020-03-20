@@ -1,0 +1,6 @@
+div.list {
+  min-width: 360px;
+  width: 360px;
+  height: 100%;
+  border-right: 1px solid #eee;
+}
