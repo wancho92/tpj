@@ -77,6 +77,8 @@ class App extends React.Component {
       item => item.id !== this.state.activeId
     );
 
+    console.log("notes : " + notes);
+
     // 새 array를 notes에 할당
     this.setState({
       notes,
@@ -91,7 +93,10 @@ class App extends React.Component {
     const activeNote = notes.filter(item => item.id === activeId)[0];
     return (
       <div className="app">
-        <Header onAddNote={this.handleAddNote} />
+        <Header
+          onAddNote={this.handleAddNote}
+          onDeleteNote={this.handleDeleteNote}
+        />
         <div className="container">
           {/* notes와 activeId props로 전달 */}
 

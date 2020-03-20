@@ -1,4 +1,5 @@
 // Note/index.js
+// 노트 작성 영역
 import React from "react";
 import "./index.css";
 
@@ -11,7 +12,7 @@ class Note extends React.Component {
         <input
           className="title"
           value={title}
-          onChage={e => onEditNote("title", e)}
+          onChange={e => onEditNote("title", e)}
         />
         <textarea
           class="note-contents"

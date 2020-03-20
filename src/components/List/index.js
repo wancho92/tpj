@@ -1,4 +1,5 @@
 // List/index.js
+// 좌측 노트 리스트 영역
 import React from "react";
 import "./index.css";
 import ListItem from "../ListItem";

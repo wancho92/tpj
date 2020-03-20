@@ -1,4 +1,5 @@
 // Header/index.js
+// 상단 영역
 import React from "react";
 import "./index.css";
 
@@ -9,7 +10,7 @@ class Header extends React.Component {
       <div className="header">
         <div className="title">
           <span />
-          Alex's 심플노트
+          WanCho 심플노트
         </div>
         <div className="buttons">
           <button onClick={onAddNote}>추가</button>
